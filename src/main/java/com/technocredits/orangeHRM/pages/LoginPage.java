@@ -1,10 +1,20 @@
 package com.technocredits.orangeHRM.pages;
 
-public class LoginPage {
+import java.util.Properties;
 
-	private static LoginPage loginPage;
+import com.technocredits.orangeHRM.Util.PropertyFileReader;
+import com.technocredits.orangeHRM.base.PredefinedMethods;
+
+public class LoginPage extends PredefinedMethods {
+
+	static LoginPage loginPage;
+	Properties loginPageProperties;
 
 	private LoginPage() {
+
+		initialization();
+		PropertyFileReader propReader = new PropertyFileReader();
+		loginPageProperties = propReader.initalizePropertyFile("LoginPageProperties");
 
 	}
 
@@ -15,6 +25,12 @@ public class LoginPage {
 	}
 
 	public void enterValueForLoginPage(String locator, String value) {
+		SetText(loginPageProperties.getProperty(locator),value);
+
+	}
+
+	public void clickOnLoginPage(String locator) {
+		Click(loginPageProperties.getProperty(locator));
 
 	}
 
