@@ -12,7 +12,7 @@ public class LoginPage extends PredefinedMethods {
 
 	private LoginPage() {
 
-		initialization();
+		//initialization();
 		PropertyFileReader propReader = new PropertyFileReader();
 		loginPageProperties = propReader.initalizePropertyFile("LoginPageProperties");
 
